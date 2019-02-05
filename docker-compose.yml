@@ -1,0 +1,27 @@
+version: '2'
+
+services:
+  influxdb:
+    image: library/influxdb
+    container_name: influxdb
+    ports:
+      - 8086:8086
+    env_file:
+      - 'env.influxdb'
+    volumes:
+      - /srv/appliance-monitoring/influxdb/data:/var/lib/influxdb
+      - /srv/appliance-monitoring/influxdb/ssl/influxdb.pem:/etc/ssl/influxdb.pem
+      - /srv/appliance-monitoring/influxdb/ssl/influxdb.key:/etc/ssl/influxdb.key
+      - /srv/appliance-monitoring/influxdb/etc/influxdb.conf:/etc/influxdb/influxdb.conf
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    volumes:
+      # Persistence
+      # mkdir -p /srv/appliance-monitoring/grafana/data
+      # chmod -R 472:472 /srv/appliance-monitoring/grafana/data
+      - /srv/appliance-monitoring/grafana/data:/var/lib/grafana
+      - /srv/appliance-monitoring/grafana/etc/grafana.ini:/etc/grafana/grafana.ini
