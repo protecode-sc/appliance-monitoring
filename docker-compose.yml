@@ -9,6 +9,8 @@ services:
     env_file:
       - 'env.influxdb'
     volumes:
+      # Persistence
+      # sudo mkdir -p /srv/appliance-monitoring/influxdb/data
       - /srv/appliance-monitoring/influxdb/data:/var/lib/influxdb
       - /srv/appliance-monitoring/influxdb/ssl/influxdb.pem:/etc/ssl/influxdb.pem
       - /srv/appliance-monitoring/influxdb/ssl/influxdb.key:/etc/ssl/influxdb.key
@@ -21,7 +23,7 @@ services:
       - "3000:3000"
     volumes:
       # Persistence
-      # mkdir -p /srv/appliance-monitoring/grafana/data
-      # chmod -R 472:472 /srv/appliance-monitoring/grafana/data
+      # sudo mkdir -p /srv/appliance-monitoring/grafana/data
+      # sudo chmod -R 472:472 /srv/appliance-monitoring/grafana/data
       - /srv/appliance-monitoring/grafana/data:/var/lib/grafana
       - /srv/appliance-monitoring/grafana/etc/grafana.ini:/etc/grafana/grafana.ini
