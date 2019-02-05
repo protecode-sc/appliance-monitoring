@@ -15,6 +15,9 @@ These examples assume that data files are located in /srv/appliance-monitoring.
 
 ## Files and directories for influxdb
 
+Influxdb is time-series database that can be used for storing monitoring information
+from BDBA appliance.
+
 Influxdb requires data directory for persistency. Examples have that configured as
 "/srv/appliance-monitoring/influxdb/data". Create that directory on the host system.
 
@@ -33,6 +36,32 @@ Finally, env.influxdb contains environment variables needed for InfluxDB.
 Replace passwords with proper ones and copy it to the same location where
 docker-compose is run from. Available variables are documented here:
 https://hub.docker.com/_/influxdb
+
+## Files and directories for grafana
+
+Grafana is a monitoring and visualization platform that can acquire data
+to be rendered from InfluxDB.
+
+Data directory for grafana is located in /srv/appliance-monitoring/grafana/data/.
+Since grafana runs as user id "472", permissions need to be set accordingly.
+Run chown -R 472:472  /srv/appliance-monitoring/grafana/data/ after creation of
+data directory.
+
+Grafana configuration example is located in grafana/etc/grafana.ini. Edit the file
+properly and place it in /srv/appliance-monitoring/grafana/etc/.
+
+Options for grafana.ini are documented in http://docs.grafana.org/installation/configuration/.
+
+# Running
+
+After configuration files are in place, you can start the stack by issuing
+"docker-compose up" in directory that has env.influxdb.
+
+Example systemd unit file is provided as docker.influxgrafana.service which
+expect the env variable file to be present in /srv/appliance-monitoring.
+
+
+
 
 
 
