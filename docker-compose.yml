@@ -27,3 +27,6 @@ services:
       # sudo chmod -R 472:472 /srv/appliance-monitoring/grafana/data
       - /srv/appliance-monitoring/grafana/data:/var/lib/grafana
       - /srv/appliance-monitoring/grafana/etc/grafana.ini:/etc/grafana/grafana.ini
+      # Uncomment if provisioning is preferred
+      # - /srv/appliance-monitoring/grafana/etc/provisioning:/etc/grafana/provisioning
+      # - /srv/appliance-monitoring/grafana/dashboards:/var/lib/grafana/dashboards
