@@ -1,5 +1,5 @@
 # appliance-monitoring
-InfluxDB/Grafana docker-compose example for monitoring BDBA appliance
+InfluxDB/Grafana docker-compose example for monitoring BDBA appliance. BDBA appliance has telegraf pre-installed since release 2019.01 and can be configured (System settings -> Monitoring configuration) to use InfluxDB backend from this example.
 
 ## Introduction
 
