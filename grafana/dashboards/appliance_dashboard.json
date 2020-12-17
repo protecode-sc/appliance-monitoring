@@ -52,7 +52,7 @@
   "editable": true,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1549372990581,
+  "iteration": 1606807166290,
   "links": [],
   "panels": [
     {
@@ -1308,6 +1308,254 @@
       "type": "row"
     },
     {
+      "aliasColors": {
+        "Downloading": "#1f78c1",
+        "Post-processing": "#7eb26d",
+        "Queued": "#cca300",
+        "Scanning": "#bf1b00"
+      },
+      "bars": true,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "$datasource",
+      "fill": 1,
+      "gridPos": {
+        "h": 10,
+        "w": 8,
+        "x": 0,
+        "y": 6
+      },
+      "id": 62080,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "hideEmpty": false,
+        "max": true,
+        "min": false,
+        "rightSide": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "connected",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "Post-processing",
+          "yaxis": 1
+        },
+        {
+          "alias": "Scanning",
+          "yaxis": 1
+        },
+        {
+          "alias": "Downloading",
+          "yaxis": 1
+        }
+      ],
+      "spaceLength": 10,
+      "stack": true,
+      "steppedLine": true,
+      "targets": [
+        {
+          "alias": "Queued",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "scan_counts",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "busy_count"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "Scanning",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "scan_counts",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "D",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "scan_count"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "Post-processing",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "scan_counts",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "C",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "process_count"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "Downloading",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "scan_counts",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "download_count"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Scans by status",
+      "tooltip": {
+        "shared": true,
+        "sort": 2,
+        "value_type": "individual"
+      },
+      "transparent": false,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
       "aliasColors": {},
       "bars": false,
       "dashLength": 10,
@@ -1315,9 +1563,9 @@
       "datasource": "default",
       "fill": 1,
       "gridPos": {
-        "h": 6,
-        "w": 12,
-        "x": 0,
+        "h": 10,
+        "w": 8,
+        "x": 8,
         "y": 6
       },
       "id": 62072,
@@ -1483,9 +1731,9 @@
       "datasource": "default",
       "fill": 1,
       "gridPos": {
-        "h": 6,
-        "w": 12,
-        "x": 12,
+        "h": 10,
+        "w": 8,
+        "x": 16,
         "y": 6
       },
       "id": 62074,
@@ -1624,7 +1872,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 12
+        "y": 16
       },
       "id": 62045,
       "panels": [],
@@ -1646,7 +1894,7 @@
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 13
+        "y": 17
       },
       "height": "300",
       "id": 28239,
@@ -1777,7 +2025,7 @@
         "h": 9,
         "w": 12,
         "x": 0,
-        "y": 21
+        "y": 25
       },
       "height": "350",
       "id": 54694,
@@ -1901,7 +2149,7 @@
         "h": 9,
         "w": 12,
         "x": 12,
-        "y": 21
+        "y": 25
       },
       "height": "350",
       "id": 61852,
@@ -2025,7 +2273,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 30
+        "y": 34
       },
       "id": 62046,
       "panels": [],
@@ -2047,7 +2295,7 @@
         "h": 10,
         "w": 24,
         "x": 0,
-        "y": 31
+        "y": 35
       },
       "height": "400",
       "id": 12054,
@@ -2173,7 +2421,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 41
+        "y": 45
       },
       "id": 62047,
       "panels": [],
@@ -2194,7 +2442,7 @@
         "h": 7,
         "w": 8,
         "x": 0,
-        "y": 42
+        "y": 46
       },
       "height": "",
       "id": 61855,
@@ -2323,7 +2571,7 @@
         "h": 7,
         "w": 8,
         "x": 8,
-        "y": 42
+        "y": 46
       },
       "height": "",
       "id": 61960,
@@ -2452,7 +2700,7 @@
         "h": 7,
         "w": 8,
         "x": 16,
-        "y": 42
+        "y": 46
       },
       "height": "",
       "id": 62042,
@@ -2631,7 +2879,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 49
+        "y": 53
       },
       "id": 62049,
       "panels": [],
@@ -2653,7 +2901,7 @@
         "h": 7,
         "w": 12,
         "x": 0,
-        "y": 50
+        "y": 54
       },
       "height": "",
       "id": 61868,
@@ -2778,7 +3026,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 57
+        "y": 61
       },
       "id": 62051,
       "panels": [],
@@ -2800,7 +3048,7 @@
         "h": 7,
         "w": 24,
         "x": 0,
-        "y": 58
+        "y": 62
       },
       "id": 61854,
       "interval": "$inter",
@@ -2937,7 +3185,7 @@
         "h": 7,
         "w": 24,
         "x": 0,
-        "y": 65
+        "y": 69
       },
       "id": 61968,
       "interval": "$inter",
@@ -3201,7 +3449,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 72
+        "y": 76
       },
       "id": 62052,
       "panels": [],
@@ -3223,7 +3471,7 @@
         "h": 7,
         "w": 24,
         "x": 0,
-        "y": 73
+        "y": 77
       },
       "id": 61893,
       "interval": "$inter",
@@ -3401,7 +3649,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 80
+        "y": 84
       },
       "id": 62053,
       "panels": [],
@@ -3423,7 +3671,7 @@
         "h": 7,
         "w": 12,
         "x": 0,
-        "y": 81
+        "y": 85
       },
       "id": 42026,
       "interval": "$inter",
@@ -3609,7 +3857,7 @@
         "h": 7,
         "w": 12,
         "x": 12,
-        "y": 81
+        "y": 85
       },
       "id": 28572,
       "interval": "$inter",
@@ -3797,7 +4045,7 @@
         "h": 7,
         "w": 12,
         "x": 0,
-        "y": 88
+        "y": 92
       },
       "id": 58901,
       "interval": "$inter",
@@ -3979,7 +4227,7 @@
         "h": 7,
         "w": 12,
         "x": 12,
-        "y": 88
+        "y": 92
       },
       "id": 50643,
       "interval": "$inter",
@@ -4153,7 +4401,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 95
+        "y": 99
       },
       "id": 62054,
       "panels": [],
@@ -4175,7 +4423,7 @@
         "h": 7,
         "w": 12,
         "x": 0,
-        "y": 96
+        "y": 100
       },
       "id": 26024,
       "interval": "$inter",
@@ -4306,7 +4554,7 @@
         "h": 7,
         "w": 12,
         "x": 12,
-        "y": 96
+        "y": 100
       },
       "id": 61850,
       "interval": "$inter",
@@ -4430,7 +4678,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 103
+        "y": 107
       },
       "id": 62055,
       "panels": [],
@@ -4452,7 +4700,7 @@
         "h": 7,
         "w": 8,
         "x": 0,
-        "y": 104
+        "y": 108
       },
       "id": 13782,
       "interval": "$inter",
@@ -4643,7 +4891,7 @@
         "h": 7,
         "w": 8,
         "x": 8,
-        "y": 104
+        "y": 108
       },
       "id": 60200,
       "interval": "$inter",
@@ -4834,7 +5082,7 @@
         "h": 7,
         "w": 8,
         "x": 16,
-        "y": 104
+        "y": 108
       },
       "id": 56720,
       "interval": "$inter",
@@ -5017,7 +5265,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 111
+        "y": 115
       },
       "id": 62056,
       "panels": [],
@@ -5039,7 +5287,7 @@
         "h": 7,
         "w": 12,
         "x": 0,
-        "y": 112
+        "y": 116
       },
       "id": 52240,
       "interval": "$inter",
@@ -5182,7 +5430,7 @@
         "h": 7,
         "w": 12,
         "x": 12,
-        "y": 112
+        "y": 116
       },
       "id": 33458,
       "interval": "$inter",
@@ -5604,5 +5852,5 @@
   },
   "timezone": "browser",
   "title": "Service dashboard",
-  "version": 1
+  "version": 2
 }
